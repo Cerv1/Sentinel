@@ -16,10 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PopUpActivity"
-            android:launchMode="singleInstance" android:excludeFromRecents="true"
-            android:taskAffinity=""
-            ></activity>
+        <activity
+            android:name=".PopUpActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:taskAffinity="" />
+
+        <service
+            android:name=".PopUpService"
+            android:exported="false" />
+        <service
+            android:name=".backService"
+            android:exported="false"></service>
     </application>
 
 </manifest>
