@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.net.URLEncoder;
+
 public class ContactsActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 13;
@@ -145,6 +147,7 @@ public class ContactsActivity extends AppCompatActivity {
         contact_picker.putExtra("id_button", R.id.button_fifth_contact);
         startActivityForResult(contact_picker, MY_PERMISSIONS_REQUEST_READ_CONTACTS);
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

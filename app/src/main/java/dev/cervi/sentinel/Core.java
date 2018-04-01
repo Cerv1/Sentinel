@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.app.IntentService;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import android.content.IntentFilter;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
+import java.net.URLEncoder;
 
 
 public class Core extends AppCompatActivity {
@@ -35,6 +38,22 @@ public class Core extends AppCompatActivity {
     public void goContactsActivity(View view){
         Intent contact = new Intent(this, ContactsActivity.class);
         startActivity(contact);
+    }
+
+    public void sendMessageToWhatsAppContact(View view) {
+        PackageManager packageManager = this.getPackageManager();
+        String number = "+34654323419";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        try {
+            String url = "https://api.whatsapp.com/send?phone=" + number + "&text=" + URLEncoder.encode("AIUDA ME KAÍ DE LA MOTO AYY LA RECONCHA DE LA MAAADRE", "UTF-8");
+            i.setPackage("com.whatsapp");
+            i.setData(Uri.parse(url));
+            if (i.resolveActivity(packageManager) != null) {
+                this.startActivity(i);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

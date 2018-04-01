@@ -1,5 +1,6 @@
 package dev.cervi.sentinel;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.IntentService;
 import android.content.DialogInterface;
@@ -8,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-public class PopUpActivity extends AppCompatActivity {
+public class PopUpActivity extends Activity {
 
 
     @Override
@@ -31,6 +32,7 @@ public class PopUpActivity extends AppCompatActivity {
                         Intent mIntent = new Intent(getApplicationContext(), backService.class);
                         mIntent.putExtra("activated", true);
                         getApplicationContext().startService(mIntent);
+                        finish();
                     }
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
@@ -39,6 +41,7 @@ public class PopUpActivity extends AppCompatActivity {
                         Intent mIntent = new Intent(getApplicationContext(), backService.class);
                         mIntent.putExtra("activated", false );
                         getApplicationContext().startService(mIntent);
+                        finish();
                     }
                 }).create();
         LDialog.show();

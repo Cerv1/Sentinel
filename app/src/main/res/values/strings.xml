@@ -6,6 +6,7 @@
     <string name="share">Share</string>
     <string name="donate">Donate</string>
     <string name="contact_title">Contacts</string>
+    <string name="emergency_title">EMERGENCY SCREEN</string>
     <string name="empty_contact">Empty contact</string>
     <string name="preference_file_key">dev.cervi.sentinel.SHARED_DATA</string>
 

@@ -3,6 +3,7 @@
     package="dev.cervi.sentinel">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -11,10 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".Core">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -22,6 +23,7 @@
         <activity
             android:name=".PopUpActivity"
             android:excludeFromRecents="true"
+            android:theme="@style/Theme.Transparent"
             android:launchMode="singleInstance"
             android:taskAffinity="" />
 
@@ -31,7 +33,13 @@
 
         <activity
             android:name=".ContactsActivity"
-            android:label="@string/contact_title"/>
+            android:label="@string/contact_title" />
+
+
+        <activity
+            android:name=".EmergencyActivity"
+            android:label="@string/emergency_title" />
+
     </application>
 
 </manifest>

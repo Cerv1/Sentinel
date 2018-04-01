@@ -41,12 +41,13 @@ public class backService extends Service {
                     startActivity(myIntent);
                     secureLaunch = true;
                 }
-
                 if(appActivated && headsetConnected){
                     Log.w("CERV1","EMERGENCY SERVICE ON BACKGROUND");
                 }
                 else if(appActivated && !headsetConnected && secureLaunch){
                     Log.w("CERV1","EMERGENCY SERVICE ALARM!!!!!!!!!!");
+                    Intent emergency = new Intent(getApplicationContext(), EmergencyActivity.class);
+                    startActivity(emergency);
                 }
             }
         }
@@ -81,15 +82,14 @@ public class backService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
-        if(intent.getStringExtra("activated") != null) {
-            if (intent.getBooleanExtra("activated", true)) {
+            if (intent.getBooleanExtra("activated", false)) {
                 Log.w("CERV1", "ACTIVATED");
                 appActivated = true;
             } else {
                 Log.w("CERV1", "NOT ACTIVATED");
                 appActivated = false;
             }
-        }
+        
         return START_STICKY;
     }
 }
