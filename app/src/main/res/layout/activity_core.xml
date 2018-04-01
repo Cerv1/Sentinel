@@ -6,52 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".Core">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:ignore="MissingConstraints">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="fill_parent"
+        android:id="@+id/layoutContainer" android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.15">
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.7">
 
-        <Button
-            android:id="@+id/button_contacts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:background="@color/colorBackgroundLight"
-            android:text="Contactos " />
+            <!-- This is the part that's 70% of the total width. I'm inserting a LinearLayout and buttons.-->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button_share"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:background="@color/colorBackgroundLight"
-            android:text="Compartir" />
+                <Button
+                    android:id="@+id/button_contacts"
+                    android:background="@drawable/rounded_button"
+                    android:text="Contacts"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/button_settings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:background="@color/colorBackgroundLight"
-            android:text="Ajustes" />
+                <Button
+                    android:id="@+id/button_settings"
+                    android:background="@drawable/rounded_button"
+                    android:text="Settings"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/button_donate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:background="@color/colorBackgroundLight"
-            android:text="Donar" />
+                <Button
+                    android:id="@+id/button_tips"
+                    android:background="@drawable/rounded_button"
+                    android:text="Tips"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
 
+                <Button
+                    android:id="@+id/button_share"
+                    android:background="@drawable/rounded_button"
+                    android:text="Settings"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
 
+                <Button
+                    android:id="@+id/button_donate"
+                    android:background="@drawable/rounded_button"
+                    android:text="Donate"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
 
+            </LinearLayout>
+            <!-- 70% Width End-->
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.15">
+        </RelativeLayout>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
