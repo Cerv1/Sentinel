@@ -9,4 +9,6 @@
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#ffffff</color>
     <color name="optionsBackgroundColor">#eeeeee</color>
+    <color name="optionsBackgroundColorSelected">#F5F5F5</color>
+    <color name="contactSelectedBackground">#DCEDC8</color>
 </resources>

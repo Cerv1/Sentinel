@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Core">
+    tools:context=".ContactsActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent" android:layout_height="fill_parent"
@@ -12,11 +12,12 @@
         <RelativeLayout
             android:layout_width="0dip"
             android:layout_height="fill_parent"
-            android:layout_weight="0.15">
+            android:layout_weight="0.05">
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="0dip"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:layout_weight="0.7">
 
             <LinearLayout
@@ -26,45 +27,49 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/button_contacts"
+                    android:id="@+id/button_first_contact"
                     android:background="@drawable/rounded_button"
-                    android:text="@string/contacts"
-                    android:onClick="goContactsActivity"
+                    android:text="@string/empty_contact"
+                    android:onClick="openFirstContact"
                     android:layout_marginBottom="8dp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" />
 
                 <Button
-                    android:id="@+id/button_settings"
-                    android:background="@drawable/rounded_button"
-                    android:text="@string/settings"
-                    android:layout_marginBottom="8dp"
+                    android:id="@+id/button_second_contact"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="openSecondContact"
+                    android:text="@string/empty_contact" />
 
                 <Button
-                    android:id="@+id/button_tips"
-                    android:background="@drawable/rounded_button"
-                    android:text="@string/tips"
-                    android:layout_marginBottom="8dp"
+                    android:id="@+id/button_third_contact"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="openThirdContact"
+                    android:text="@string/empty_contact" />
 
                 <Button
-                    android:id="@+id/button_share"
-                    android:background="@drawable/rounded_button"
-                    android:text="@string/share"
-                    android:layout_marginBottom="8dp"
+                    android:id="@+id/button_fourth_contact"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="openFourthContact"
+                    android:text="@string/empty_contact" />
 
                 <Button
-                    android:id="@+id/button_donate"
-                    android:background="@drawable/rounded_button"
-                    android:text="@string/donate"
-                    android:layout_marginBottom="8dp"
+                    android:id="@+id/button_fifth_contact"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="openFifthContact"
+                    android:text="@string/empty_contact" />
 
             </LinearLayout>
 
@@ -72,8 +77,9 @@
         <RelativeLayout
             android:layout_width="0dip"
             android:layout_height="fill_parent"
-            android:layout_weight="0.15">
+            android:layout_weight="0.05">
         </RelativeLayout>
     </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>

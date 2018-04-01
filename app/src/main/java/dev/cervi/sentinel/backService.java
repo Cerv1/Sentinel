@@ -81,14 +81,14 @@ public class backService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
-
-        if(intent.getBooleanExtra("activated", true)){
-            Log.w("CERV1","ACTIVATED");
-            appActivated = true;
-        }
-        else{
-            Log.w("CERV1","NOT ACTIVATED");
-            appActivated = false;
+        if(intent.getStringExtra("activated") != null) {
+            if (intent.getBooleanExtra("activated", true)) {
+                Log.w("CERV1", "ACTIVATED");
+                appActivated = true;
+            } else {
+                Log.w("CERV1", "NOT ACTIVATED");
+                appActivated = false;
+            }
         }
         return START_STICKY;
     }
