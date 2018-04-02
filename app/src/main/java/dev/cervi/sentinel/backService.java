@@ -21,15 +21,14 @@ import android.widget.Toast;
 public class backService extends Service {
 
     private boolean headsetConnected = false;
-    private boolean appRunning = false;
     private boolean appActivated = true;
     private boolean secureLaunch = false;
-    public Context context = this;
     public Handler handler = null;
     public static Runnable runnable = null;
 
     public class HeadsetConnectionReceiver extends BroadcastReceiver {
         public void onReceive(Context context, Intent intent) {
+            Log.w("CERV1", "onReceived connected prems");
             if (intent.hasExtra("state")){
                 if (headsetConnected && intent.getIntExtra("state", 0) == 0){
                     headsetConnected = false;
@@ -62,22 +61,32 @@ public class backService extends Service {
     public void onCreate() {
         Log.w("CERV1","SERVICE CREATED");
         registerReceiver(new HeadsetConnectionReceiver(), new IntentFilter(Intent.ACTION_HEADSET_PLUG));
+        startService(new Intent(getApplicationContext(), backService.class));
         handler = new Handler();
         runnable = new Runnable() {
             public void run() {
-                if(appActivated)
-                    handler.postDelayed(runnable, 500);
+                //if(appActivated)
+                    handler.postDelayed(runnable, 0);
             }
         };
-        if(appActivated)
-            handler.postDelayed(runnable, 500);
+        //if(appActivated)
+            handler.postDelayed(runnable, 0);
     }
 
     @Override
     public void onDestroy() {
         /* IF YOU WANT THIS SERVICE KILLED WITH THE APP THEN UNCOMMENT THE FOLLOWING LINE */
         //handler.removeCallbacks(runnable);
+        startService(new Intent(getApplicationContext(), backService.class));
         Log.w("CERV1","SERVICE STOPPED");
+    }
+
+    @Override
+    public void onTaskRemoved(Intent root_intent){
+        Log.w("CERV1", "onTaskRemoved called!");
+        stopService(new Intent(getApplicationContext(), backService.class));
+        //startService(new Intent(getApplicationContext(), backService.class));
+        sendBroadcast(new Intent(this, backService.class));
     }
 
     @Override
@@ -89,7 +98,6 @@ public class backService extends Service {
                 Log.w("CERV1", "NOT ACTIVATED");
                 appActivated = false;
             }
-        
         return START_STICKY;
     }
 }
