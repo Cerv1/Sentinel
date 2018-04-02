@@ -19,13 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".PopUpActivity"
             android:excludeFromRecents="true"
-            android:theme="@style/Theme.Transparent"
             android:launchMode="singleInstance"
-            android:taskAffinity="" />
+            android:taskAffinity=""
+            android:theme="@style/Theme.Transparent" />
 
         <service
             android:name=".backService"
@@ -34,12 +33,12 @@
         <activity
             android:name=".ContactsActivity"
             android:label="@string/contact_title" />
-
-
         <activity
             android:name=".EmergencyActivity"
             android:label="@string/emergency_title" />
-
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>
