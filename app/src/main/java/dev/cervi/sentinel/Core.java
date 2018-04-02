@@ -40,6 +40,11 @@ public class Core extends AppCompatActivity {
         startActivity(contact);
     }
 
+    public void goSettingsActivity(View view){
+        Intent settings = new Intent(this, SettingsActivity.class);
+        startActivity(settings);
+    }
+
     public void sendMessageToWhatsAppContact(View view) {
         PackageManager packageManager = this.getPackageManager();
         String number = "+34654323419";

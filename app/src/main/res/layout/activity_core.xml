@@ -39,6 +39,7 @@
                     android:background="@drawable/rounded_button"
                     android:text="@string/settings"
                     android:layout_marginBottom="8dp"
+                    android:onClick="goSettingsActivity"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" />
 
