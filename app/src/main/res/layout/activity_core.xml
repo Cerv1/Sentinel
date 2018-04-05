@@ -61,7 +61,7 @@
 
                 <Button
                     android:id="@+id/button_donate"
-                    android:onClick="sendMessageToWhatsAppContact"
+                    android:onClick=""
                     android:background="@drawable/rounded_button"
                     android:text="@string/donate"
                     android:layout_marginBottom="8dp"

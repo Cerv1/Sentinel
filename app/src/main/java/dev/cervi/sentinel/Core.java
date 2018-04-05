@@ -8,10 +8,12 @@ import android.app.FragmentManager;
 import android.app.IntentService;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -22,10 +24,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResult;
+
 import java.net.URLEncoder;
 
 
 public class Core extends AppCompatActivity {
+
+    private static final int MY_PERMISSIONS_REQUEST_SMS_LOCATION_CONTACTS = 12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +44,11 @@ public class Core extends AppCompatActivity {
         setContentView(R.layout.activity_core);
         startService(new Intent(this, backService.class));
 
+        if (    ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED ) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.SEND_SMS, Manifest.permission.READ_CONTACTS}, MY_PERMISSIONS_REQUEST_SMS_LOCATION_CONTACTS);
+        }
     }
 
     public void goContactsActivity(View view){
@@ -45,7 +61,7 @@ public class Core extends AppCompatActivity {
         startActivity(settings);
     }
 
-    public void sendMessageToWhatsAppContact(View view) {
+    /*public void sendMessageToWhatsAppContact(View view) {
         PackageManager packageManager = this.getPackageManager();
         String number = "+34654323419";
         Intent i = new Intent(Intent.ACTION_VIEW);
@@ -59,6 +75,6 @@ public class Core extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 }

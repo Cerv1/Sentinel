@@ -22,7 +22,6 @@ import java.net.URLEncoder;
 public class ContactsActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 13;
-    private int contact_used = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class ContactsActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, MY_PERMISSIONS_REQUEST_READ_CONTACTS);
         }
 
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("contacts_pref", 0);
 
         Button saved_prefs;
         String name;
@@ -86,7 +85,7 @@ public class ContactsActivity extends AppCompatActivity {
             contact.setText(name);
             contact.setBackgroundResource(R.color.contactSelectedBackground);
 
-            SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("contacts_pref", 0);
             SharedPreferences.Editor editor = sharedPref.edit();
 
             if(data.getIntExtra("id_button", 0) == R.id.button_first_contact) {

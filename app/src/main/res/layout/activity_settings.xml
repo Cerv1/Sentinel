@@ -58,9 +58,10 @@
                 android:layout_height="match_parent">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/message_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="HELP ME, I HAVE AN EMERGENCY" />
+                    android:text="I have had an accident and I'm probably hurt." />
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
