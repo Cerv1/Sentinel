@@ -44,30 +44,34 @@
                     android:layout_height="wrap_content" />
 
                 <Button
-                    android:id="@+id/button_tips"
-                    android:background="@drawable/rounded_button"
-                    android:text="@string/tips"
-                    android:layout_marginBottom="8dp"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
-
-                <Button
                     android:id="@+id/button_share"
                     android:background="@drawable/rounded_button"
+                    android:onClick="shareButton"
                     android:text="@string/share"
                     android:layout_marginBottom="8dp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" />
 
-                <Button
-                    android:id="@+id/button_donate"
-                    android:onClick=""
-                    android:background="@drawable/rounded_button"
-                    android:text="@string/donate"
-                    android:layout_marginBottom="8dp"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                <!--
+                                <Button
+                                    android:id="@+id/button_tips"
+                                    android:background="@drawable/rounded_button"
+                                    android:text="@string/tips"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content" />
 
+
+
+                                <Button
+                                    android:id="@+id/button_donate"
+                                    android:onClick=""
+                                    android:background="@drawable/rounded_button"
+                                    android:text="@string/donate"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content" />
+                -->
             </LinearLayout>
 
         </RelativeLayout>

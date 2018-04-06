@@ -12,6 +12,7 @@
     <string name="emergency_explanation">SMS WILL BE SENDED, PLEASE PRESS THE BUTTON TO STOP THE EMERGENCY</string>
     <string name="title_emergency">EMERGENCY SERVICE ACTIVATED</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="share_text">Look at this new app! </string>
 
     <!-- Strings related to Settings -->
 

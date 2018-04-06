@@ -28,14 +28,14 @@ public class backService extends Service {
 
     public class HeadsetConnectionReceiver extends BroadcastReceiver {
         public void onReceive(Context context, Intent intent) {
-            Log.w("CERV1", "onReceived connected prems");
+            Log.w("CERV1", "onReceived connected");
             if (intent.hasExtra("state")){
                 if (headsetConnected && intent.getIntExtra("state", 0) == 0){
                     headsetConnected = false;
-                    Log.w("CERV1","HEADSET DISCONNECTED LOCOOO");
+                    Log.w("CERV1","HEADSET DISCONNECTED");
                 } else if (!headsetConnected && intent.getIntExtra("state", 0) == 1){
                     headsetConnected = true;
-                    Log.w("CERV1","HEADSET CONNECTED LOCOOO");
+                    Log.w("CERV1","HEADSET CONNECTED");
                     Intent myIntent = new Intent(getApplicationContext(), PopUpActivity.class);
                     startActivity(myIntent);
                     secureLaunch = true;
@@ -44,7 +44,6 @@ public class backService extends Service {
                     Log.w("CERV1","EMERGENCY SERVICE ON BACKGROUND");
                 }
                 else if(appActivated && !headsetConnected && secureLaunch){
-                    Log.w("CERV1","EMERGENCY SERVICE ALARM!!!!!!!!!!");
                     Intent emergency = new Intent(getApplicationContext(), EmergencyActivity.class);
                     startActivity(emergency);
                 }
@@ -65,12 +64,10 @@ public class backService extends Service {
         handler = new Handler();
         runnable = new Runnable() {
             public void run() {
-                //if(appActivated)
-                    handler.postDelayed(runnable, 0);
+                handler.postDelayed(runnable, 0);
             }
         };
-        //if(appActivated)
-            handler.postDelayed(runnable, 0);
+        handler.postDelayed(runnable, 0);
     }
 
     @Override
@@ -83,9 +80,7 @@ public class backService extends Service {
 
     @Override
     public void onTaskRemoved(Intent root_intent){
-        Log.w("CERV1", "onTaskRemoved called!");
         stopService(new Intent(getApplicationContext(), backService.class));
-        //startService(new Intent(getApplicationContext(), backService.class));
         sendBroadcast(new Intent(this, backService.class));
     }
 

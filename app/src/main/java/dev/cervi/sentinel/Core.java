@@ -61,20 +61,12 @@ public class Core extends AppCompatActivity {
         startActivity(settings);
     }
 
-    /*public void sendMessageToWhatsAppContact(View view) {
-        PackageManager packageManager = this.getPackageManager();
-        String number = "+34654323419";
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        try {
-            String url = "https://api.whatsapp.com/send?phone=" + number + "&text=" + URLEncoder.encode("AIUDA ME KAÍ DE LA MOTO AYY LA RECONCHA DE LA MAAADRE", "UTF-8");
-            i.setPackage("com.whatsapp");
-            i.setData(Uri.parse(url));
-            if (i.resolveActivity(packageManager) != null) {
-                this.startActivity(i);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
+    public void shareButton(View view){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Look at Sentinel on Google Play! It's crazy!");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
 
 }
